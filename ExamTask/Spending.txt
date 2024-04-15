@@ -1,0 +1,7 @@
+Spending
+----------------
+Number of waller: 1111222233334444
+Amount: 10
+Category: food
+Timestamp: Mon Apr 15 13:57:38 2024
+----------------
