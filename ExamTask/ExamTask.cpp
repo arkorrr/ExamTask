@@ -1,4 +1,4 @@
-﻿#define _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -118,16 +118,11 @@ class FinanceManagement
 {
 	vector<Wallet*> wallets;
 	map<long long, vector<Spending>> spend;
-	map<long long, map<time_t, double>> dailySpending; //статистика затрат 
-	map<long long, map<time_t, double>> weeklySpending; //статистика затрат по неделям
-	map<long long, map<time_t, double>> monthlySpending; //статистика затрат по месяцам
-
-	void addTimestampToSpending(const long long& walletNumber,const Spending& spend) //добавление затрат в статистику
+	map<long long, map<time_t, double>> timeSpending; //статистика затрат 
+	void addTimestampToSpending(const long long& walletNumber,const Spending& spend) //добавление времени затрат в статистику
 	{ 
 		time_t timestamp = spend.getTimestamp();
-		dailySpending[walletNumber][timestamp] += spend.getMoney();
-		weeklySpending[walletNumber][timestamp] += spend.getMoney();
-		monthlySpending[walletNumber][timestamp] += spend.getMoney();
+		timeSpending[walletNumber][timestamp] += spend.getMoney();
 	}
 
 	Wallet* findWallet(long long& number) //Поиск кошелька 
